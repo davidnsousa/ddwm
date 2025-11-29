@@ -2,7 +2,6 @@
 
 # Autostart apps
 
-mullvad connect &
 var t &
 
 # Check network connection before autostarting network dependent apps
@@ -12,4 +11,3 @@ done
 
 # Autostart network dependent apps
 
-mega-cmd &
