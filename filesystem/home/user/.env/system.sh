@@ -16,16 +16,9 @@ toggle_networking() {
 
 wifi_menu() {	
         selected=$(nmcli -t -f ssid dev wifi | grep -E -v '^$' | dmenu -p "Networks:")
-
         if [[ -n "$selected" ]]; then
-                if nmcli -s -g 802-11-wireless-security.psk connection show "$selected" 2>&1 | grep -q "no such connection profile"; then
-                        password=$(echo "" | rofi_hmenu "Password:")
-                        nmcli device wifi connect "$selected" password "$password"
-                else
-                        nmcli device wifi connect "$selected"
-                fi
+                var tr "nmcli device wifi connect "$selected" --ask"
         fi
-
 }
 
 bluetooth_menu() {
