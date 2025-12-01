@@ -13,7 +13,7 @@ bind '"\e[1;3D": "cd_up\n"'
 alias ls='ls --color=auto'
 
 if ! pgrep Xorg > /dev/null; then
-    startx
+    startx &>/dev/null
 fi
 
 cowsay "Welcome!"
