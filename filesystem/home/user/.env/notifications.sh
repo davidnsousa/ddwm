@@ -9,9 +9,7 @@ while true; do
     status=$(cat "$BATDEVICE/status")
     if [ "$status" = "Discharging" ] || [ "$status" = "Not Charging" ]; then
         if [ "$capacity" -le  10 ]; then
-            notify-send --urgency=critical "Batttery is critically low!"
-        elif [ "$capacity" -eq 20 ]; then
-            notify-send --urgency=normal "Batttery is low!"
+            notify-send --urgency=critical "Batttery low!"
         fi
     else
         bat="Unknown status: $status"
