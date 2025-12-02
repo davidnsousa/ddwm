@@ -20,7 +20,7 @@ PKGS=(
     mousepad                       "Text editor"                               off
     leafpad                        "Text editor"                               off
     notable-bin                    "Markdown note-taking"                      off
-    onsidian                       "Note-taking app"                           off
+    obsidian                       "Note-taking app"                           off
     atril                          "Document viewer"                           off
     pdftk                          "PDF toolkit"                               off
     xournalpp                      "PDF annotation"                            off
@@ -77,6 +77,11 @@ PKGS=(
     syncthing                      "Sync files"                                off
     megacmd-bin                    "MEGA command-line client"                  off
     ollama                         "AI model manager"                          off
+    cups                           "Print server (CUPS)"                       off
+    sane                           "Scanner framework (SANE)"                  off
+    sane-airscan                   "Network‑scanner backend for SANE"          off
+    ipp-usb                        "USB‑to‑IPP bridge daemon"                  off
+    xsane                          "Graphical front‑end for scanning (SANE)"   off
 )
 
 

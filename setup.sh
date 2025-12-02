@@ -43,11 +43,6 @@ PKGS=(
   nano
   rate-mirrors-bin
   ufw
-  cups
-  sane
-  sane-airscan
-  ipp-usb
-  xsane
   cowsay
 )
 
