@@ -11,4 +11,5 @@ case $1 in
         "us") var tr yay;;                         # Update system
         "cf") var e -i ${@:2};;                    # Configuration files
         "ss") flameshot gui;;                      # Secreenshot
+        "wb") notify-send "Set the default web browser variable" "edit ~/.env/vars.sh";; # Web browser                        
 esac

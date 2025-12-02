@@ -64,6 +64,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "/bin/sh", "-c", "var t", NULL };
 static const char *editor[]  = { "/bin/sh", "-c", "var e", NULL };
 static const char *filemanager[]  = { "/bin/sh", "-c", "var f", NULL };
+static const char *webbrowser[]  = { "/bin/sh", "-c", "var wb", NULL };
 static const char *volup[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
 static const char *voldown[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
 static const char *volmute[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
@@ -80,6 +81,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,                    spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_e,                    spawn,          {.v = editor } },
 	{ MODKEY,                       XK_f,                    spawn,          {.v = filemanager } },
+	{ MODKEY,                       XK_w,                    spawn,          {.v = webbrowser } },
 	{ 0,                            XK_Print,                spawn,          {.v = screenshot } },
 	{ MODKEY,                       XK_b,                    togglebar,      {0} },
 	{ MODKEY,                       XK_Right,                focusstack,     {.i = +1 } },
