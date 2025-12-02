@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONFIG_FILES="$HOME/.env/* $HOME/.config/gtk-3.0/settings.ini $HOME/.gtkrc-2.0 $HOME/.bashrc $HOME/.xinitrc $HOME/.Xresources"
+CONFIG_FILES="$HOME/.config/gtk-3.0/settings.ini $HOME/.gtkrc-2.0 $HOME/.Xresources $HOME/.bashrc $HOME/.xinitrc $HOME/.env/* $HOME/dwm/config.h"
 
 connect_disconnect_wifi() {
         nmcli device | grep wifi | awk '{print $3}' | grep -w connected && nmcli device disconnect $WIFIDEVICE || nmcli device connect $WIFIDEVICE
