@@ -87,7 +87,16 @@ while true; do
     else
         bat="Unknown status: $status"
     fi
+    
+    # Notifications status
+    
+    paused=$(dunstctl is-paused)
+    if [ "$paused" = "true" ]; then
+        ntf="↓"
+    else
+        ntf="↑"
+    fi
 
-    xsetroot -name " VOL $sound | CPU $cpu | RAM $ram | BT $bluetooth | WIFI $wifi | VPN $vpn | BAT $bat | $(date "+%H:%M, %a, %b %d ")"
+    xsetroot -name " VOL $sound | CPU $cpu | RAM $ram | BT $bluetooth | WIFI $wifi | VPN $vpn | BAT $bat | NTF $ntf | $(date "+%H:%M, %a, %b %d ")"
     sleep 1
 done

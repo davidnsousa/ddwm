@@ -92,9 +92,24 @@ update_mirrors () {
         notify-send "Mirrors set!"
 }
 
-option=$(echo -e "Network\nSound\nDisplay\nSystem monitor\nSearch files\nUpdate system\nUpdate mirrors\nConfiguration files\nApps\nExit" | dmenu -p "System:")
+toggle_notifications() {
+    paused=$(dunstctl is-paused)
+    if [ "$paused" = "true" ]; then
+        dunstctl set-paused false
+        notify-send "Notifications on"
+    else
+        notify-send -t 1000 "Notifications off"
+        sleep 1
+        dunstctl set-paused true
+    fi
+}
+
+option=$(echo -e "Toggle notifications\nNetwork\nSound\nDisplay\nSystem monitor\nSearch files\nUpdate system\nUpdate mirrors\nConfiguration files\nApps\nExit" | dmenu -p "System:")
 if [[ -n "$option" ]]; then
         case "$option" in
+                "Toggle notifications")
+                        toggle_notifications
+                        ;;
                 "Network")
                         network_menu
                         ;;
