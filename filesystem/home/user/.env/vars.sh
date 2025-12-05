@@ -14,4 +14,5 @@ case $1 in
         "wb") notify-send "Set the default web browser variable" "edit ~/.env/vars.sh";;        # Web browser 
         "vpnon") notify-send "Set the default VPN connect variable" "edit ~/.env/vars.sh";;     # Connect vpn           
         "vpnoff") notify-send "Set the default VPN disconnect variable" "edit ~/.env/vars.sh";; # Disconnect vpn                      
+        "cloud") notify-send "Set the default cloud services variable" "edit ~/.env/vars.sh";;  # Start cloud services                      
 esac

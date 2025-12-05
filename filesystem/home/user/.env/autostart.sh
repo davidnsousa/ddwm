@@ -11,3 +11,5 @@ while ! ping -q -c 1 -W 1 ping.eu > /dev/null; do
 done
 
 # Autostart network dependent apps
+
+var cloud &
