@@ -38,7 +38,7 @@ bluetooth_menu() {
 }
 
 network_menu (){ 
-        option=$(echo -e "List networks\nConnect/Disconnect network\nEnable/Disable wifi\nEnable/Disable Networking\nBluetooth" | dmenu -p "Settings:")
+        option=$(echo -e "List networks\nConnect/Disconnect network\nEnable/Disable wifi\nEnable/Disable Networking\nToggle VPN\nBluetooth" | dmenu -p "Settings:")
         if [[ -n "$option" ]]; then
                 case "$option" in
                         "List networks")
@@ -52,6 +52,9 @@ network_menu (){
                                 ;;
                         "Enable/Disable Networking")
                                 toggle_networking
+                                ;;
+                        "Toggle VPN")
+                                toggle_vpn
                                 ;;
                         "Bluetooth")
                                 bluetooth_menu
@@ -102,6 +105,19 @@ toggle_notifications() {
         sleep 1
         dunstctl set-paused true
     fi
+}
+
+toggle_vpn() {
+        connection=$(nmcli connection show --active | grep -q -E "tun0|wg0" && echo "Connected" || echo "Disconnected")
+        if [ "$connection" = "Connected" ]; then
+                var vpnoff
+                notify-send "VPN off"
+        elif [ "$connection" = "Disconnected" ]; then
+                var vpnon
+                notify-send "VPN on"
+        else
+        :       
+        fi
 }
 
 option=$(echo -e "Toggle notifications\nNetwork\nSound\nDisplay\nSystem monitor\nSearch files\nUpdate system\nUpdate mirrors\nConfiguration files\nApps\nExit" | dmenu -p "System:")
