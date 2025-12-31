@@ -39,7 +39,7 @@ PKGS=(
   xarchiver
   flameshot
   mirage
-  nvim
+  neovim
   nano
   rate-mirrors-bin
   ufw
