@@ -4,7 +4,7 @@ case $1 in
         "t") alacritty;;                           # Terminal
         "f") pcmanfm ${@:2};;                      # File Manager
         "tr") alacritty -e ${@:2};;                # Terminal run
-        "e") var tr nvim ${@:2} -c "ls";;          # Editor
+        "e") var tr nvim ${@:2};;                  # Editor
         "s") var tr pulsemixer;;                   # Sound Manager                                        
         "d") arandr;;                              # Display Manager
         "sm") var tr btop;;                        # System monitor
