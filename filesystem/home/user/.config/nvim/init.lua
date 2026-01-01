@@ -1,3 +1,10 @@
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
 vim.o.number = true
 
 -- Bootstrap lazy.nvim
@@ -36,14 +43,44 @@ require("lazy").setup({
     requires = { 'nvim-lua/plenary.nvim' }
     },
     {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "nvim-tree/nvim-web-devicons",
+	"nvim-tree/nvim-web-devicons",
     },
     },
+    {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    opts = {
+    -- your configuration comes here
+    -- or leave it empty to use the default settings
+    -- refer to the configuration section below
+    },
+    },
+    {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+    {
+    "NeogitOrg/neogit",
+    lazy = true,
+    dependencies = {
+   	"nvim-lua/plenary.nvim",         -- required
+    	"sindrets/diffview.nvim",        -- optional - Diff integration
+
+    	-- Only one of these is needed.
+    	"nvim-telescope/telescope.nvim", -- optional
+    	"ibhagwan/fzf-lua",              -- optional
+    	"nvim-mini/mini.pick",           -- optional
+    	"folke/snacks.nvim",             -- optional
+  	},
+  	cmd = "Neogit",
+  	keys = {
+    		{ "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
+  	}
+     }
 },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
@@ -52,12 +89,14 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
+require("nvim-tree").setup {}
 require("bufferline").setup {}
 require("telescope").setup {}
-require("neo-tree").setup {}
+require("which-key").setup {}
+require("lualine").setup {}
 
-vim.keymap.set("n", "<M-n>", ":bnext<CR>")
-vim.keymap.set("n", "<M-p>", ":bprev<CR>")
-vim.keymap.set("n", "<M-b>", ":Telescope buffers<CR>")
-vim.keymap.set("n", "<M-f>", ":Telescope current_buffer_fuzzy_find<CR>")
-vim.keymap.set("n", "<M-t>", ":Neotree<CR>")
+vim.keymap.set("n", "<leader>f", ":Telescope current_buffer_fuzzy_find<CR>", { desc = "Find", noremap = true  })
+vim.keymap.set("n", "<leader>b", ":Telescope buffers<CR>", { desc = "Buffers", noremap = true  })
+vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", { desc = "File browser" , noremap = true })
+
+vim.cmd("colorscheme retrobox")
