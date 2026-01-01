@@ -2,6 +2,8 @@
 
 CONFIG_FILES="$HOME/.config/gtk-3.0/settings.ini $HOME/.gtkrc-2.0 $HOME/.Xresources $HOME/.bashrc $HOME/.xinitrc $HOME/.env/* $HOME/dwm/config.h $HOME/.config/nvim/init.lua"
 
+WIFIDEVICE=$(nmcli device status | awk '$2=="wifi"{print $1}')
+
 connect_disconnect_wifi() {
         nmcli device | grep wifi | awk '{print $3}' | grep -w connected && nmcli device disconnect $WIFIDEVICE || nmcli device connect $WIFIDEVICE
 }
