@@ -33,6 +33,7 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     {
     "akinsho/bufferline.nvim",
     version = "*",
@@ -99,4 +100,4 @@ vim.keymap.set("n", "<leader>f", ":Telescope current_buffer_fuzzy_find<CR>", { d
 vim.keymap.set("n", "<leader>b", ":Telescope buffers<CR>", { desc = "Buffers", noremap = true  })
 vim.keymap.set("n", "<leader>t", ":NvimTreeToggle<CR>", { desc = "File browser" , noremap = true })
 
-vim.cmd("colorscheme retrobox")
+vim.cmd.colorscheme "catppuccin"
