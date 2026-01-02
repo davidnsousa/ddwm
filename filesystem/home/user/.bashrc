@@ -1,3 +1,7 @@
+if ! pgrep Xorg > /dev/null; then
+    startx &>/dev/null
+fi
+
 cd_up() {
     cd ..
     printf "\033[1A\033[0K" # Move cursor up one line and clear it
@@ -12,8 +16,4 @@ bind '"\e[1;3D": "cd_up\n"'
 
 alias ls='ls --color=auto'
 
-if ! pgrep Xorg > /dev/null; then
-    startx &>/dev/null
-fi
-
-cowsay "Welcome!"
+source ./.env/utils.sh
