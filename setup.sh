@@ -38,7 +38,7 @@ PKGS=(
   pcmanfm
   xarchiver
   flameshot
-  mirage
+  feh
   neovim
   nano
   rate-mirrors-bin
