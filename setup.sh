@@ -43,7 +43,6 @@ PKGS=(
   nano
   rate-mirrors-bin
   ufw
-  tgpt
 )
 
 # INSTALL yay
