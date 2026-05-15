@@ -35,9 +35,9 @@ xset s noblank
 # The hex keycodes below correspond to XF86XK_AudioLowerVolume, XF86XK_AudioRaiseVolume,
 # and XF86XK_AudioMute as defined in config.h. If those bindings are changed or remapped,
 # update these keycodes accordingly.
-xset -r 0x1008ff11  # XF86XK_AudioLowerVolume
-xset -r 0x1008ff13  # XF86XK_AudioRaiseVolume
-xset -r 0x1008ff12  # XF86XK_AudioMute
+xset -r XF86AudioLowerVolume
+xset -r XF86AudioRaiseVolume
+xset -r XF86AudioMute
 
 export QT_ENABLE_HIGHDPI_SCALING=0
 
