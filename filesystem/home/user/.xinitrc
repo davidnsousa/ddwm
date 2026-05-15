@@ -31,6 +31,13 @@ fi
 xset s off
 xset -dpms
 xset s noblank
+# Disable key repeat for volume/mute media keys to prevent rapid-fire toggling.
+# The hex keycodes below correspond to XF86XK_AudioLowerVolume, XF86XK_AudioRaiseVolume,
+# and XF86XK_AudioMute as defined in config.h. If those bindings are changed or remapped,
+# update these keycodes accordingly.
+xset -r 0x1008ff11  # XF86XK_AudioLowerVolume
+xset -r 0x1008ff13  # XF86XK_AudioRaiseVolume
+xset -r 0x1008ff12  # XF86XK_AudioMute
 
 export QT_ENABLE_HIGHDPI_SCALING=0
 
