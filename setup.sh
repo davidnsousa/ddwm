@@ -31,7 +31,7 @@ PKGS=(
   arandr
   dunst
   xf86-input-synaptics
-  pactl
+  pipewire-pulse
   dialog
   libnotify
   slock
@@ -66,13 +66,21 @@ for PKG in ${PKGS[@]}; do
     yay -S --needed --noconfirm $PKG
 done
 
+# OPTIONAL: Printing/scanning support
+
+if dialog --yesno "Do you want printing/scanning support?" 7 50; then
+    for PKG in cups sane sane-airscan ipp-usb xsane; do
+        yay -S --needed --noconfirm $PKG
+    done
+    sudo systemctl enable cups.service
+    sudo systemctl enable ipp-usb.service
+fi
+
 # ENABLE SERVICES
 
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable bluetooth.service
-sudo systemctl enable cups.service
 sudo systemctl enable ufw.service
-sudo systemctl enable ipp-usb.service
 
 sudo ufw enable
 sudo rfkill unblock bluetooth
@@ -88,9 +96,9 @@ sudo cp filesystem/etc/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d/
 
 # BUILD dwm and dmenu
 
-cd $root_dir/ddwm/dwm
+cd $HOME/dwm
 sudo make clean install
-cd ../dmenu
+cd $HOME/dmenu
 sudo make clean install
 
 echo

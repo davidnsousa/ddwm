@@ -9,8 +9,8 @@ case $1 in
         "d") arandr;;                              # Display Manager
         "sm") var tr btop;;                        # System monitor
         "us") var tr yay;;                         # Update system
-        "ss") flameshot gui;;                      # Secreenshot
-        "wb") notify-send "Set the default web browser variable" "edit ~/.env/vars.sh";;        # Web browser 
+        "ss") flameshot gui;;                      # Screenshot
+        "wb") notify-send "Web browser not set" "Edit ~/.env/vars.sh to set your default web browser";;        # Web browser
         "vpnon") notify-send "Set the default VPN connect variable" "edit ~/.env/vars.sh";;     # Connect vpn           
         "vpnoff") notify-send "Set the default VPN disconnect variable" "edit ~/.env/vars.sh";; # Disconnect vpn                      
         "cloud") notify-send "Set the default cloud services variable" "edit ~/.env/vars.sh";;  # Start cloud services                      

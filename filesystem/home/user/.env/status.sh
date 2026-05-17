@@ -77,13 +77,7 @@ while true; do
     elif [ "$status" = "Not charging" ] || [ "$status" = "Full" ]; then
         bat="-"
     elif [ "$status" = "Discharging" ] || [ "$status" = "Not Charging" ]; then
-        if [ "$capacity" -le 10 ]; then
-            bat="↓ $capacity%"
-        elif [ "$capacity" -le 20 ]; then
-            bat="↓ $capacity%"
-        else
-            bat="↓ $capacity%"
-        fi
+        bat="↓ $capacity%"
     else
         bat="Unknown status: $status"
     fi
