@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 root_dir=$(pwd)
@@ -39,12 +38,13 @@ PKGS=(
   flameshot
   feh
   neovim
+  ttf-jetbrains-mono-nerd
   nano
   rate-mirrors-bin
   ufw
 )
 
-# BOOTSTRAP PREREQUISITES (required to build yay on a bare install)
+fc-cache -fv
 
 sudo pacman -S --needed --noconfirm base-devel git which
 
