@@ -56,7 +56,7 @@ while true; do
 
     #vpn
     
-    connection=$(nmcli connection show --active | grep -q -E "tun0|wg0" && echo "Connected" || echo "Disconnected")
+    connection=$(nmcli -t -f TYPE connection show --active | grep -qE "^(tun|wireguard|vpn)" && echo "Connected" || echo "Disconnected")
     if [ "$connection" = "Connected" ]; then
         vpn="↑"
     else

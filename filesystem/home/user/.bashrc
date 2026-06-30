@@ -1,5 +1,5 @@
 if ! pgrep Xorg > /dev/null; then
-    startx &>/dev/null
+    startx &>$HOME/.xlog
 fi
 
 cd_up() {

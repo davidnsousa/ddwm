@@ -110,7 +110,7 @@ toggle_notifications() {
 }
 
 toggle_vpn() {
-        connection=$(nmcli connection show --active | grep -q -E "tun0|wg0" && echo "Connected" || echo "Disconnected")
+        connection=$(nmcli -t -f TYPE connection show --active | grep -qE "^(tun|wireguard|vpn)" && echo "Connected" || echo "Disconnected")
         if [ "$connection" = "Connected" ]; then
                 var vpnoff
                 notify-send "VPN off"
@@ -150,7 +150,7 @@ if [[ -n "$option" ]]; then
                         update_mirrors
                         ;;
                 "Configuration files")
-                        var cf $CONFIG_FILES
+                        var e $CONFIG_FILES
                         ;;
                 "Apps")
                         var tr $HOME/.env/install_apps.sh
