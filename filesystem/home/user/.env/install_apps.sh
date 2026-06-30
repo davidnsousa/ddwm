@@ -84,6 +84,7 @@ PKGS=(
     sane-airscan                   "Network‑scanner backend for SANE"          off
     ipp-usb                        "USB‑to‑IPP bridge daemon"                  off
     xsane                          "Graphical front‑end for scanning (SANE)"   off
+    thunderbird                    "Email client"                              off
 )
 
 
