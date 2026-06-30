@@ -67,6 +67,8 @@ PKGS=(
     virtualbox-host-modules-arch   "VirtualBox kernel modules"                 off
     virtualbox-host-modules-dkms   "VirtualBox DKMS modules"                   off
     mullvad-vpn                    "Mullvad VPN"                               off
+    proton-vpn-cli                 "Proton VPN"                                off
+    protonmail-bridge-nokeychain   "Proton Mail Bridge"                        off
     rpi-imager-bin                 "Raspberry Pi Imager"                       off
     lxappearance-gtk3              "GTK theme editor"                          off
     docker                         "Docker"                                    off
