@@ -6,7 +6,6 @@ root_dir=$(pwd)
 # PKGS FOR DE
 
 PKGS=(
-  base-devel
   xorg-server
   xorg-xinit
   xorg-xkill
@@ -44,6 +43,10 @@ PKGS=(
   rate-mirrors-bin
   ufw
 )
+
+# BOOTSTRAP PREREQUISITES (required to build yay on a bare install)
+
+sudo pacman -S --needed --noconfirm base-devel git which
 
 # INSTALL yay
 
