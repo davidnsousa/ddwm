@@ -7,6 +7,9 @@ vim.opt.termguicolors = true
 
 vim.o.number = true
 
+-- clipboard
+vim.opt.clipboard = "unnamedplus"
+
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then

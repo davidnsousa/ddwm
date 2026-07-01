@@ -13,6 +13,7 @@ PKGS=(
   xorg-xsetroot
   xdg-desktop-portal
   xdg-desktop-portal-gtk
+  xclip
   alacritty
   gvfs
   udiskie
