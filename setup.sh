@@ -41,7 +41,6 @@ PKGS=(
   neovim
   ttf-jetbrains-mono-nerd
   nano
-  rate-mirrors-bin
   ufw
 )
 

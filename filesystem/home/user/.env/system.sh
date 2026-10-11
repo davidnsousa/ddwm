@@ -19,7 +19,7 @@ toggle_networking() {
 wifi_menu() {	
         selected=$(nmcli -t -f ssid dev wifi | grep -E -v '^$' | dmenu -p "Networks:")
         if [[ -n "$selected" ]]; then
-                var tr "nmcli device wifi connect "$selected" --ask"
+                var tr "nmcli device wifi connect '$selected' --ask"
         fi
 }
 
@@ -92,11 +92,6 @@ exit_menu() {
         esac
 }
 
-update_mirrors () {
-        rate-mirrors --allow-root --protocol https arch | grep -v '^#' | sudo tee /etc/pacman.d/mirrorlist
-        notify-send "Mirrors set!"
-}
-
 toggle_notifications() {
     paused=$(dunstctl is-paused)
     if [ "$paused" = "true" ]; then
@@ -146,10 +141,7 @@ if [[ -n "$option" ]]; then
                 "Update system")
                         var us
                         ;;
-                "Update mirrors")
-                        update_mirrors
-                        ;;
-                "Configuration files")
+               "Configuration files")
                         var e $CONFIG_FILES
                         ;;
                 "Apps")
