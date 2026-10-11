@@ -117,7 +117,7 @@ toggle_vpn() {
         fi
 }
 
-option=$(echo -e "Toggle notifications\nNetwork\nSound\nDisplay\nSystem monitor\nSearch files\nUpdate system\nUpdate mirrors\nConfiguration files\nApps\nExit" | dmenu -p "System:")
+option=$(echo -e "Toggle notifications\nNetwork\nSound\nDisplay\nSystem monitor\nSearch files\nUpdate system\nConfiguration files\nApps\nExit" | dmenu -p "System:")
 if [[ -n "$option" ]]; then
         case "$option" in
                 "Toggle notifications")
